@@ -31,6 +31,7 @@ void add_history(List *list, char *str)
   for(int i = 0; i < length;i++){
     temp->str[i] = str[i];
   }
+  temp->str[length] = '\0';
   temp->next = NULL;
 
   if(list->root == NULL)
@@ -46,7 +47,7 @@ void add_history(List *list, char *str)
 	copy_list = copy_list->next;
       }
     temp->id = copy_list->id + 1;
-    copy_list = temp;
+    copy_list->next = temp;//update the pointer of the last item
   }
   posId++;
 }
@@ -75,7 +76,7 @@ void print_history(List *list){
   }
   Item *temp = list->root;
   while(temp != NULL){
-      printf("[ID:[%d] : %s]\n", temp->id, temp->str);
+      printf("ID[:%d]: %s\n", temp->id, temp->str);
       temp = temp->next;
   }
 }
