@@ -70,7 +70,7 @@ char **tokenize(char* str)
 {
 
   int token_count = count_tokens(str);
-  char **tokens = malloc(sizeof(char *)* (token_count + 1));
+  char **tokens = malloc(sizeof(char *) * (token_count + 1));
   char *token = str;
   for(int i = 0; i < token_count; i++){
     token = token_start(token);

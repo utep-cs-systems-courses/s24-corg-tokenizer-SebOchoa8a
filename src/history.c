@@ -20,14 +20,14 @@ List* init_history()
 void add_history(List *list, char *str)
 {
   Item *temp = (Item*)malloc(sizeof(Item));
-  short posId = 1;
+  int posId = 1;
   int length = 0;
-  while(*(str + length) != '\0' && *(str + length) != '\n'){
+  while(*(str + length) != '\0' && *(str + length) != '\n')
+  {
     length++;
   }
   
   temp->str = (char*)malloc((length + 1) * sizeof(char));
-
   for(int i = 0; i < length;i++){
     temp->str[i] = str[i];
   }
@@ -69,14 +69,14 @@ char *get_history(List *list, int id){
 /*Print the entire contents of the list. */
 
 void print_history(List *list){
-  if(list->root->next == NULL || list == NULL){
-    printf("There is no history to print.]\n");
+  if(list == NULL || list->root == NULL){
+    printf("There is no history to print.\n");
     return;
   }
   Item *temp = list->root;
   while(temp != NULL){
-    printf("ID[%d]: %s\n", temp->id,temp->str);
-    temp = temp->next;
+      printf("[ID:[%d] : %s]\n", temp->id, temp->str);
+      temp = temp->next;
   }
 }
 
