@@ -19,13 +19,36 @@ List* init_history()
 */
 void add_history(List *list, char *str)
 {
-  Item *temp = list->root;
-  short id = 1;
-  while(temp->next != NULL){
-    temp = temp->next;
-    id++;
+  Item *temp = (Item*)malloc(sizeof(Item));
+  short posId = 1;
+  int length = 0;
+  while(*(str + length) != '\0' && *(str + length) != '\n'){
+    length++;
   }
   
+  temp->str = (char*)malloc((length + 1) * sizeof(char));
+
+  for(int i = 0; i < length;i++){
+    temp->str[i] = str[i];
+  }
+  temp->next = NULL;
+
+  if(list->root == NULL)
+  {
+    temp->id = posId;
+    list->root = temp;
+  }
+  else
+  {
+    Item *copy_list = list->root;//creates a copt ofr the list root to use later
+    while(copy_list->next != NULL)
+      {
+	copy_list = copy_list->next;
+      }
+    temp->id = copy_list->id + 1;
+    copy_list = temp;
+  }
+  posId++;
 }
 
 /* Retrieve the string stored in the node where Item->id == id.

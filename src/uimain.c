@@ -18,7 +18,7 @@ int main()
       printf("\n");
       char **tokens = tokenize(sen);
       printf("\n");
-      
+      add_history(token_history, &sen);
       print_tokens(tokens);
       free_tokens(tokens);
       break;
