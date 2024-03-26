@@ -1,5 +1,5 @@
 tokenizer: history.o tokenizer.o uimain.o
-	gcc -o tokenizer.c history.o tokenizer.o uimain.o
+	gcc -o tokenizer history.o tokenizer.o uimain.o
 
 history.o: history.h history.c
 
