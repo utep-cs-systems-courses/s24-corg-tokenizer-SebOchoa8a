@@ -15,7 +15,7 @@ int main()
     case '1':
       printf("Enter a string you want to tokenize!");
       scanf(" %[^\n]",&sen);
-      printf(\n);
+      printf("\n");
       char **tokens = tokenize(sen);
       printf("\n");
       print_tokens(tokens);

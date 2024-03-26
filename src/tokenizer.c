@@ -32,7 +32,7 @@ char *token_terminator(char *token)
   int i = 0;
   while(*(token + i)){
     if(space_char(*(token + i))){
-      token + i;
+      break;
     }
     i++;
   }
